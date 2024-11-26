@@ -10,7 +10,7 @@ function FilterByCategory({ onCategoryChange }) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await api.get('http://127.0.0.1:8000/category-list'); // Endpoint zwracający listę kategorii
+        const response = await api.get('https://django-react-blogpost-app.vercel.app/category-list'); // Endpoint zwracający listę kategorii
         setCategories(response.data);
       } catch (error) {
         console.error('Błąd podczas pobierania kategorii:', error);

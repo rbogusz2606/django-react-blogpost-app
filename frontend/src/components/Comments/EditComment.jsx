@@ -8,7 +8,7 @@ function EditComment({ comment, onUpdate, onCancel }) {
 
     const handleUpdate = async () => {
         try {
-            await api.put(`http://127.0.0.1:8000/comment/${comment.id}/update/`, {
+            await api.put(`https://django-react-blogpost-app.vercel.app/comment/${comment.id}/update/`, {
                 content: editedContent, 
                 blog_post: comment.blog_post
             });

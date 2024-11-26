@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 function DeleteCommentButton({ commentId, onDelete }) {
     const handleDelete = async () => {
         try {
-            await api.delete(`http://127.0.0.1:8000/comment/${commentId}/delete/`, {
+            await api.delete(`https://django-react-blogpost-app.vercel.app/comment/${commentId}/delete/`, {
             });
             onDelete(commentId);
         } catch (error) {

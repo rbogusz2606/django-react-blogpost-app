@@ -24,7 +24,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://127.0.0.1:8000/signup/', formData);
+      const response = await axios.post('https://django-react-blogpost-app.vercel.app/signup/', formData);
       // Wyodrębnij tokeny z odpowiedzi
       const { access, refresh, user } = response.data;
       // Przechowaj tokeny w localStorage

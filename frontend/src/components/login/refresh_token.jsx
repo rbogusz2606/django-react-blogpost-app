@@ -3,7 +3,7 @@ import axios from 'axios';
 const refreshAccessToken = async () => {
   try {
     const refreshToken = localStorage.getItem('refreshToken');
-    const response = await axios.post('http://localhost:8000/token/refresh/', {
+    const response = await axios.post('https://django-react-blogpost-app.vercel.app/token/refresh/', {
       refresh: refreshToken,
     });
 

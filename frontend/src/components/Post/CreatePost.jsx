@@ -14,7 +14,7 @@ function CreatePost() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await api.get('http://127.0.0.1:8000/category-list/'); // Pobieranie kategorii z API
+        const response = await api.get('https://django-react-blogpost-app.vercel.app/category-list/'); // Pobieranie kategorii z API
         setCategories(response.data); // Zapisanie kategorii w stanie
       } catch (error) {
         console.error("Błąd podczas pobierania kategorii:", error);
@@ -43,7 +43,7 @@ function CreatePost() {
 
     try {
       // Wysłanie danych posta do API
-      await api.post('http://127.0.0.1:8000/blogposts/create/', {
+      await api.post('https://django-react-blogpost-app.vercel.app/blogposts/create/', {
         title,
         content,
         categories: [selectedCategory], // Przekazanie wybranej kategorii jako lista UUID

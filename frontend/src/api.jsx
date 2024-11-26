@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Tworzenie instancji axios z interceptorem
 const api = axios.create({
-  baseURL: 'http://localhost:8000/', // URL twojego API
+  baseURL: 'https://django-react-blogpost-app.vercel.app/', // URL twojego API
 });
 
 // Interceptor żądań - dodanie access token do każdego żądania
@@ -29,7 +29,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('refreshToken');
       if (refreshToken) {
         try {
-          const response = await axios.post('http://localhost:8000/token/refresh/', {
+          const response = await axios.post('https://django-react-blogpost-app.vercel.app/token/refresh/', {
             refresh: refreshToken,
           });
 
@@ -54,7 +54,7 @@ api.interceptors.response.use(
 
 // Funkcja do pobrania szczegółów użytkownika
 export const getUserDetails = async () => {
-  const response = await api.get('http://localhost:8000/auth/user/'); // Endpoint do UserDetailView
+  const response = await api.get('https://django-react-blogpost-app.vercel.app/auth/user/'); // Endpoint do UserDetailView
   return response.data;
 };
 

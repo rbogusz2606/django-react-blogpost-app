@@ -13,7 +13,7 @@ const CreateComment = ({ blogPostId, onCommentAdded }) => {
     try {
       // Wyślij POST żądanie do API
       const response = await api.post(
-        "http://localhost:8000/comment/create/", // URL endpointu
+        "https://django-react-blogpost-app.vercel.app//comment/create/", // URL endpointu
         {
           blog_post: blogPostId, 
           content: content, 

@@ -16,7 +16,7 @@ function CommentsByPost() {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await api.get(`http://127.0.0.1:8000/comments/${blogPostId}/`);
+                const response = await api.get(`https://django-react-blogpost-app.vercel.app/comments/${blogPostId}/`);
                 setComments(response.data);
             } catch (error) {
                 console.error('Błąd podczas pobierania komentarzy:', error);

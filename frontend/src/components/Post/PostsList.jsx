@@ -18,8 +18,8 @@ function PostsList() {
     const fetchPosts = async (category = '') => {
       try {
         const response = category
-        ? await api.get(`http://127.0.0.1:8000/post_filter_by/category/${category}/`) // Żądanie filtrowane
-        : await api.get('http://127.0.0.1:8000/blogposts/'); // Żądanie bez filtra
+        ? await api.get(`https://django-react-blogpost-app.vercel.app/post_filter_by/category/${category}/`) // Żądanie filtrowane
+        : await api.get('https://django-react-blogpost-app.vercel.app/blogposts/'); // Żądanie bez filtra
         const data = response.data;
          // Ustawienie posts na odpowiednią tablicę
         setPosts(data.results || data);

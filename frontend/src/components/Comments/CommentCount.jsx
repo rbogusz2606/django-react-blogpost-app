@@ -9,7 +9,7 @@ const CommentCount = ({ blogPostId }) => {
     const fetchCommentCount = async () => {
       try {
         const response = await api.get(
-          `http://localhost:8000/comments/count/${blogPostId}/`, 
+          `https://django-react-blogpost-app.vercel.app/comments/count/${blogPostId}/`, 
         );
         setCommentCount(response.data.comment_count);
       } catch (error) {

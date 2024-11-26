@@ -12,11 +12,6 @@ from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import RetrieveUpdateAPIView
 
-@permission_classes([IsAuthenticated])
-@api_view(['GET'])
-def endpoints(request):
-    return Response ("/blogposts/ , /blogposts/<uuid:pk>/, /signup/, /logout/, /login/', /token/refresh/, /comment/, comment/<uuid:pk>/, /like/, /like/<int:pk>/delete/ , /post_filter_by/<str:category_name>/, NAZWY KATEGORII: Sport, Finances, Adventures")
-    
 class CustomPagination(PageNumberPagination):
     page_size = 5
     page_size_query_param = 'page_size'

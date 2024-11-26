@@ -7,7 +7,7 @@ function LikesCounter({ blogPostId }) {
   useEffect(() => {
     const fetchLikesCount = async () => {
       try {
-        const response = await api.get(`http://localhost:8000/likes-count/${blogPostId}/`);
+        const response = await api.get(`https://django-react-blogpost-app.vercel.app/likes-count/${blogPostId}/`);
         setLikesCount(response.data.likes_count);
       } catch (error) {
         console.error('Error fetching likes count:', error);
