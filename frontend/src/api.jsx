@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiUrl } from "../../config.js";
+import { apiUrl } from './config';
 
 // Tworzenie instancji axios z interceptorem
 const api = axios.create({
