@@ -4,6 +4,10 @@ import { apiUrl } from './config';
 // Tworzenie instancji axios z interceptorem
 const api = axios.create({
   baseURL: `${apiUrl}/`, // URL twojego API
+  withCredentials: true, // Włączenie obsługi ciasteczek lub JWT
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Interceptor żądań - dodanie access token do każdego żądania
@@ -24,7 +28,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       const refreshToken = localStorage.getItem('refreshToken');
@@ -44,8 +48,14 @@ api.interceptors.response.use(
           return api(originalRequest);
         } catch (refreshError) {
           console.error('Błąd podczas odświeżania tokenu:', refreshError);
-          // Tutaj możesz wylogować użytkownika, jeśli odświeżenie tokenu się nie uda
+          // Wylogowanie użytkownika, jeśli tokenu nie można odświeżyć
+          localStorage.clear();
+          window.location.href = '/login';
         }
+      } else {
+        console.error('Brak refresh tokenu.');
+        localStorage.clear();
+        window.location.href = '/login';
       }
     }
 
@@ -55,8 +65,13 @@ api.interceptors.response.use(
 
 // Funkcja do pobrania szczegółów użytkownika
 export const getUserDetails = async () => {
-  const response = await api.get(`${apiUrl}/auth/user/`); // Endpoint do UserDetailView
-  return response.data;
+  try {
+    const response = await api.get(`${apiUrl}/auth/user/`);
+    return response.data;
+  } catch (error) {
+    console.error('Błąd podczas pobierania szczegółów użytkownika:', error);
+    throw error;
+  }
 };
 
 export default api;
