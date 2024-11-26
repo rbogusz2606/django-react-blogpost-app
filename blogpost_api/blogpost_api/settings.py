@@ -21,6 +21,12 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_CREDENTIALS = True
 
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    'x-csrftoken',
+    'x-requested-with',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -68,7 +74,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',  # Adres frontendu
-    'https://django-react-blogpost-app.vercel.app',
+    'https://django-react-blogpost-app.vercel.app/',
 ]
 
 ROOT_URLCONF = 'blogpost_api.urls'
