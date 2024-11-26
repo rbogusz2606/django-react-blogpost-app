@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../api.jsx';
 import { Box, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
-import { apiUrl } from "../../config.js";
+import { apiUrl } from "../config.js";
 
 function FilterByCategory({ onCategoryChange }) {
   const [categories, setCategories] = useState([]);
