@@ -17,13 +17,20 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-react-blogpost-app.herokuapp.com','django-react-blogpost-app.vercel.app','localhost', '127.0.0.1',  
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
     'authorization',
     'content-type',
+    # Default headers
+    'accept',
+    'accept-encoding',
+    'origin',
+    'user-agent',
+    'dnt',
     'x-csrftoken',
     'x-requested-with',
 ]
