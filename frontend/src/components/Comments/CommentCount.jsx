@@ -1,5 +1,6 @@
 import  { useEffect, useState } from "react";
 import api from "../../api.jsx";
+import { apiUrl } from "../../config.js";
 
 const CommentCount = ({ blogPostId }) => {
   const [commentCount, setCommentCount] = useState(0);
@@ -9,7 +10,7 @@ const CommentCount = ({ blogPostId }) => {
     const fetchCommentCount = async () => {
       try {
         const response = await api.get(
-          `https://django-react-blogpost-app.vercel.app/comments/count/${blogPostId}/`, 
+          `${apiUrl}/comments/count/${blogPostId}/`, 
         );
         setCommentCount(response.data.comment_count);
       } catch (error) {

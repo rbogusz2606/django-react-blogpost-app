@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../api.jsx';
-import { Box, Typography, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
+import { Box, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function FilterByCategory({ onCategoryChange }) {
   const [categories, setCategories] = useState([]);
@@ -10,7 +11,7 @@ function FilterByCategory({ onCategoryChange }) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await api.get('https://django-react-blogpost-app.vercel.app/category-list'); // Endpoint zwracający listę kategorii
+        const response = await api.get(`${apiUrl}/category-list`); // Endpoint zwracający listę kategorii
         setCategories(response.data);
       } catch (error) {
         console.error('Błąd podczas pobierania kategorii:', error);

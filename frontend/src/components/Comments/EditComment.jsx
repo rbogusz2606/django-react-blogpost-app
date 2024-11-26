@@ -2,13 +2,13 @@
 import  { useState } from 'react';
 import api from '../../api.jsx';
 import { Box, Button, TextField } from "@mui/material";
-
+import { apiUrl } from "../../config.js";
 function EditComment({ comment, onUpdate, onCancel }) {
     const [editedContent, setEditedContent] = useState(comment.content);
 
     const handleUpdate = async () => {
         try {
-            await api.put(`https://django-react-blogpost-app.vercel.app/comment/${comment.id}/update/`, {
+            await api.put(`${apiUrl}/comment/${comment.id}/update/`, {
                 content: editedContent, 
                 blog_post: comment.blog_post
             });

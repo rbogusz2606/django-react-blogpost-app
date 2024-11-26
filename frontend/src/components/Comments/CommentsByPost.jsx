@@ -5,6 +5,7 @@ import EditComment from './EditComment';
 import DeleteCommentButton from './DeleteComment';
 import AuthContext from '../../AuthContext.jsx';
 import { Box, Typography, Button, Card, CardContent } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function CommentsByPost() {
     const { blogPostId } = useParams(); // Pobierz blogPostId z trasy
@@ -16,7 +17,7 @@ function CommentsByPost() {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await api.get(`https://django-react-blogpost-app.vercel.app/comments/${blogPostId}/`);
+                const response = await api.get(`${apiUrl}/comments/${blogPostId}/`);
                 setComments(response.data);
             } catch (error) {
                 console.error('Błąd podczas pobierania komentarzy:', error);

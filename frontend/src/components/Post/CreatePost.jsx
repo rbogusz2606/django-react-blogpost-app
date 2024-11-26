@@ -2,6 +2,7 @@ import  { useEffect, useState } from 'react';
 import api from '../../api.jsx';
 import { Link } from 'react-router-dom';
 import { Box, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Alert } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function CreatePost() {
   const [title, setTitle] = useState(''); // Stan dla tytułu posta
@@ -14,7 +15,7 @@ function CreatePost() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await api.get('https://django-react-blogpost-app.vercel.app/category-list/'); // Pobieranie kategorii z API
+        const response = await api.get(`${apiUrl}/category-list/`); // Pobieranie kategorii z API
         setCategories(response.data); // Zapisanie kategorii w stanie
       } catch (error) {
         console.error("Błąd podczas pobierania kategorii:", error);
@@ -43,7 +44,7 @@ function CreatePost() {
 
     try {
       // Wysłanie danych posta do API
-      await api.post('https://django-react-blogpost-app.vercel.app/blogposts/create/', {
+      await api.post(`${apiUrl}/blogposts/create/`, {
         title,
         content,
         categories: [selectedCategory], // Przekazanie wybranej kategorii jako lista UUID

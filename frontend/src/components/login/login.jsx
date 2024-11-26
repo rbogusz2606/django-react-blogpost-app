@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ function Login({ setIsAuthenticated }) {
     setError('');
 
     try {
-      const response = await axios.post('https://django-react-blogpost-app.vercel.app/login/', {
+      const response = await axios.post(`${apiUrl}/login/`, {
         username,
         password,
       });

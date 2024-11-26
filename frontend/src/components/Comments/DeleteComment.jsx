@@ -1,10 +1,10 @@
 import api from "../../api.jsx";
 import { Button } from "@mui/material";
-
+import { apiUrl } from "../../config.js";
 function DeleteCommentButton({ commentId, onDelete }) {
     const handleDelete = async () => {
         try {
-            await api.delete(`https://django-react-blogpost-app.vercel.app/comment/${commentId}/delete/`, {
+            await api.delete(`${apiUrl}/comment/${commentId}/delete/`, {
             });
             onDelete(commentId);
         } catch (error) {

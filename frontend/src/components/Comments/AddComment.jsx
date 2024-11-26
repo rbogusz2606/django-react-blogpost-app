@@ -1,11 +1,11 @@
 import { useState } from "react";
 import api from "../../api.jsx";
 import { Box, TextField, Button, Typography } from "@mui/material";
+import { apiUrl } from "../../config.js"; 
 
 const CreateComment = ({ blogPostId, onCommentAdded }) => {
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -13,7 +13,7 @@ const CreateComment = ({ blogPostId, onCommentAdded }) => {
     try {
       // Wyślij POST żądanie do API
       const response = await api.post(
-        "https://django-react-blogpost-app.vercel.app/comment/create/", // URL endpointu
+        `${apiUrl}/comment/create/`, // URL endpointu
         {
           blog_post: blogPostId, 
           content: content, 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { apiUrl } from "../../config.js";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('https://django-react-blogpost-app.vercel.app/signup/', formData);
+      const response = await axios.post(`${apiUrl}/signup/`, formData);
       // Wyodrębnij tokeny z odpowiedzi
       const { access, refresh, user } = response.data;
       // Przechowaj tokeny w localStorage

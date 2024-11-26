@@ -7,6 +7,7 @@ import CreateComment from '../Comments/AddComment.jsx';
 import CommentCount from '../Comments/CommentCount.jsx';
 import { Link } from 'react-router-dom';
 import { Typography, Box, Card, CardContent, Button, CircularProgress, Alert } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function PostsList() {
   const [posts, setPosts] = useState([]); // Stan dla postów
@@ -18,8 +19,8 @@ function PostsList() {
     const fetchPosts = async (category = '') => {
       try {
         const response = category
-        ? await api.get(`https://django-react-blogpost-app.vercel.app/post_filter_by/category/${category}/`) // Żądanie filtrowane
-        : await api.get('https://django-react-blogpost-app.vercel.app/blogposts/'); // Żądanie bez filtra
+        ? await api.get(`${apiUrl}/post_filter_by/category/${category}/`) // Żądanie filtrowane
+        : await api.get(`${apiUrl}/blogposts/`); // Żądanie bez filtra
         const data = response.data;
          // Ustawienie posts na odpowiednią tablicę
         setPosts(data.results || data);

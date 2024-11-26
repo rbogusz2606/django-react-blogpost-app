@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../api.jsx'; 
 import { Button } from "@mui/material";
+import { apiUrl } from "../../config.js";
 
 function LikeButton({ blogPostId, initialLiked,  }) {
   const [isLiked, setIsLiked] = useState(initialLiked); // Czy post jest polubiony
@@ -10,7 +11,7 @@ function LikeButton({ blogPostId, initialLiked,  }) {
     // Opcjonalnie: Możesz pobrać status polubienia dla użytkownika, jeśli nie jest znany
     const fetchLikeStatus = async () => {
       try {
-        const response = await api.get(`https://django-react-blogpost-app.vercel.app/likes-status/${blogPostId}/`); // Przykładowy endpoint sprawdzający status
+        const response = await api.get(`${apiUrl}/likes-status/${blogPostId}/`); // Przykładowy endpoint sprawdzający status
         if (response.data.liked) {
           setIsLiked(true);
           setLikeId(response.data.like_id); // Ustawiamy istniejące ID "like'a"
@@ -25,7 +26,7 @@ function LikeButton({ blogPostId, initialLiked,  }) {
 
   const handleLike = async () => {
     try {
-      const response = await api.post('https://django-react-blogpost-app.vercel.app/like/create/', { blog_post: blogPostId });
+      const response = await api.post(`${apiUrl}/like/create/`, { blog_post: blogPostId });
       setIsLiked(true);
       setLikeId(response.data.id); // Ustawiamy ID nowo utworzonego "like'a"
     } catch (error) {
@@ -37,7 +38,7 @@ function LikeButton({ blogPostId, initialLiked,  }) {
     if (!likeId) return; // Jeśli brak ID, nie możemy usunąć "like'a"
 
     try {
-      await api.delete(`https://django-react-blogpost-app.vercel.app/like/${likeId}/delete/`);
+      await api.delete(`${apiUrl}/like/${likeId}/delete/`);
       setIsLiked(false);
       setLikeId(null); // Usuwamy ID "like'a"
     } catch (error) {
