@@ -5,7 +5,6 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,)
 
 urlpatterns = [
-    path("", views.endpoints, name="endpoints"),
     path("blogposts/", views.BlogPostListView.as_view(), name="blogpost-list"),
     path('blogposts/create/', views.BlogPostCreateView.as_view(), name='blogpost-create'),
     path('blogposts/<uuid:pk>/update/', views.BlogPostUpdateView.as_view(), name='blogpost-update'),
