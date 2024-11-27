@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Signup from './components/login/signup.jsx';
 import Login from './components/login/login.jsx';
@@ -12,11 +12,6 @@ import { AuthProvider } from './AuthContext.jsx';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('accessToken'));
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    setIsAuthenticated(!!accessToken);
-  }, []);
 
   return (
     <AuthProvider>
