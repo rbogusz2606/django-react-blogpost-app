@@ -81,8 +81,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',  # Adres frontendu
     'https://django-react-blogpost-app.vercel.app',
+    'http://localhost:5173',  # Adres frontendu
 ]
 
 ROOT_URLCONF = 'blogpost_api.urls'
