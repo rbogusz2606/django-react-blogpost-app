@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ['django-react-blogpost-app.herokuapp.com','django-react-blogpos
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_HEADERS = [
     'authorization',
