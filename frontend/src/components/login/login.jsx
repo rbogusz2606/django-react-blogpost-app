@@ -16,7 +16,7 @@ function Login({ setIsAuthenticated }) {
     setError('');
 
     try {
-      const response = await axios.post(`${apiUrl}/login/`, {
+      const response = await axios.post(`${apiUrl}login/`, {
         username,
         password,
       });

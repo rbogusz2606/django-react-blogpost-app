@@ -7,7 +7,7 @@ function LikesCounter({ blogPostId }) {
   useEffect(() => {
     const fetchLikesCount = async () => {
       try {
-        const response = await api.get(`${apiUrl}/likes-count/${blogPostId}/`);
+        const response = await api.get(`${apiUrl}likes-count/${blogPostId}/`);
         setLikesCount(response.data.likes_count);
       } catch (error) {
         console.error('Error fetching likes count:', error);

@@ -10,7 +10,7 @@ const CommentCount = ({ blogPostId }) => {
     const fetchCommentCount = async () => {
       try {
         const response = await api.get(
-          `${apiUrl}/comments/count/${blogPostId}/`, 
+          `${apiUrl}comments/count/${blogPostId}/`, 
         );
         setCommentCount(response.data.comment_count);
       } catch (error) {

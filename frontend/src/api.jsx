@@ -3,7 +3,7 @@ import { apiUrl } from './config';
 
 // Tworzenie instancji axios z interceptorem
 const api = axios.create({
-  baseURL: `${apiUrl}/`, // URL twojego API
+  baseURL: `${apiUrl}`, // URL twojego API
   withCredentials: true, // Włączenie obsługi ciasteczek lub JWT
   headers: {
     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('refreshToken');
       if (refreshToken) {
         try {
-          const response = await axios.post(`${apiUrl}/token/refresh/`, {
+          const response = await axios.post(`${apiUrl}token/refresh/`, {
             refresh: refreshToken,
           });
 
@@ -66,7 +66,7 @@ api.interceptors.response.use(
 // Funkcja do pobrania szczegółów użytkownika
 export const getUserDetails = async () => {
   try {
-    const response = await api.get(`${apiUrl}/auth/user/`);
+    const response = await api.get(`${apiUrl}auth/user/`);
     return response.data;
   } catch (error) {
     console.error('Błąd podczas pobierania szczegółów użytkownika:', error);

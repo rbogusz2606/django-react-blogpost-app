@@ -25,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post(`${apiUrl}/signup/`, formData);
+      const response = await axios.post(`${apiUrl}signup/`, formData);
       // Wyodrębnij tokeny z odpowiedzi
       const { access, refresh, user } = response.data;
       // Przechowaj tokeny w localStorage

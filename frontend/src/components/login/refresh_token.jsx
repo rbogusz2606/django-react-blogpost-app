@@ -4,7 +4,7 @@ import { apiUrl } from "../../config.js";
 const refreshAccessToken = async () => {
   try {
     const refreshToken = localStorage.getItem('refreshToken');
-    const response = await axios.post(`${apiUrl}/token/refresh/`, {
+    const response = await axios.post(`${apiUrl}token/refresh/`, {
       refresh: refreshToken,
     });
 
