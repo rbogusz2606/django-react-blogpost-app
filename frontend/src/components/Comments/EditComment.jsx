@@ -2,7 +2,7 @@
 import  { useState } from 'react';
 import api from '../../api.jsx';
 import { Box, Button, TextField } from "@mui/material";
-import { apiUrl } from "../../config.js";
+import { apiUrl } from '../../config.js';
 function EditComment({ comment, onUpdate, onCancel }) {
     const [editedContent, setEditedContent] = useState(comment.content);
 
