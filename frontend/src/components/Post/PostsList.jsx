@@ -19,8 +19,8 @@ function PostsList() {
     const fetchPosts = async (category = '') => {
       try {
         const response = category
-        ? await api.get(`${apiUrl}post_filter_by/category/${category}/`) // Żądanie filtrowane
-        : await api.get(`${apiUrl}blogposts/`); // Żądanie bez filtra
+        ? await api.get(`${apiUrl}/post_filter_by/category/${category}/`) // Żądanie filtrowane
+        : await api.get(`${apiUrl}/blogposts/`); // Żądanie bez filtra
         const data = response.data;
          // Ustawienie posts na odpowiednią tablicę
         setPosts(data.results || data);

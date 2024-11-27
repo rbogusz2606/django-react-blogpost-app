@@ -8,7 +8,7 @@ function EditComment({ comment, onUpdate, onCancel }) {
 
     const handleUpdate = async () => {
         try {
-            await api.put(`${apiUrl}comment/${comment.id}/update/`, {
+            await api.put(`${apiUrl}/comment/${comment.id}/update/`, {
                 content: editedContent, 
                 blog_post: comment.blog_post
             });

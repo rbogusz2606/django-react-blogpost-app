@@ -13,7 +13,7 @@ const CreateComment = ({ blogPostId, onCommentAdded }) => {
     try {
       // Wyślij POST żądanie do API
       const response = await api.post(
-        `${apiUrl}comment/create/`, // URL endpointu
+        `${apiUrl}/comment/create/`, // URL endpointu
         {
           blog_post: blogPostId, 
           content: content, 

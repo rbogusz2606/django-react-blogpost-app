@@ -4,7 +4,7 @@ import { apiUrl } from "../../config.js";
 function DeleteCommentButton({ commentId, onDelete }) {
     const handleDelete = async () => {
         try {
-            await api.delete(`${apiUrl}comment/${commentId}/delete/`, {
+            await api.delete(`${apiUrl}/comment/${commentId}/delete/`, {
             });
             onDelete(commentId);
         } catch (error) {

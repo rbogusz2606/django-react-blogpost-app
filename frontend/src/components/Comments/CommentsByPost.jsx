@@ -17,7 +17,7 @@ function CommentsByPost() {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await api.get(`${apiUrl}comments/${blogPostId}/`);
+                const response = await api.get(`${apiUrl}/comments/${blogPostId}/`);
                 setComments(response.data);
             } catch (error) {
                 console.error('Błąd podczas pobierania komentarzy:', error);
