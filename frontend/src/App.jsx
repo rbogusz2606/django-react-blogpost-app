@@ -17,9 +17,9 @@ function App() {
     <Router>
       <Routes>
         {/* Publiczne ścieżki (bez AuthProvider) */}
-        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-        <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-        <Route path="/signup" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/signup" />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
+        <Route path="/signup" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Signup />} />
 
         {/* Prywatne ścieżki (wymagające AuthProvider) */}
         <Route
