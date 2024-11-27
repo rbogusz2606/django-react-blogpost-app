@@ -66,7 +66,7 @@ api.interceptors.response.use(
 // Funkcja do pobrania szczegółów użytkownika
 export const getUserDetails = async () => {
   try {
-    const response = await api.get(`${apiUrl}auth/user/`);
+    const response = await api.get(`${apiUrl}/auth/user/`);
     return response.data;
   } catch (error) {
     console.error('Błąd podczas pobierania szczegółów użytkownika:', error);
