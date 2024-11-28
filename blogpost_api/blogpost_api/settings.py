@@ -79,8 +79,11 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'https://django-react-blogpost-app.vercel.app',
-    'http://localhost:5173',  # Adres frontendu
+    'https://django-react-blogpost-app-7e5bf55103ad.herokuapp.com',
+    'http://localhost:5173',
 ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'blogpost_api.urls'
 
