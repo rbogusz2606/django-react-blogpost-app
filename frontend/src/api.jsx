@@ -4,6 +4,7 @@ import { apiUrl } from './config';
 // Tworzenie instancji axios z interceptorem
 const api = axios.create({
   baseURL: `${apiUrl}`, // URL twojego API
+  credentials: 'include',
   withCredentials: true, // Włączenie obsługi ciasteczek lub JWT
   headers: {
     'Content-Type': 'application/json',
