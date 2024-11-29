@@ -5,7 +5,7 @@ import { Box, Typography, TextField, Button, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { apiUrl } from "../../config.js";
 
-const Signup = ({ setIsAuthenticated }) => {
+const Signup = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -34,7 +34,6 @@ const Signup = ({ setIsAuthenticated }) => {
       // Opcjonalnie, przechowaj dane użytkownika
       localStorage.setItem("user", JSON.stringify(user));
       setError(null);
-      setIsAuthenticated(true);
       setSuccess("Pomyślnie zarejestrowano użytkownika!");
       alert("Rejestracja pomyślna!");
       navigate("/login");

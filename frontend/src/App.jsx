@@ -45,13 +45,7 @@ function App() {
         />
         <Route
           path="/signup"
-          element={
-            isAuthenticated ? (
-              <Navigate to="/dashboard" />
-            ) : (
-              <Signup setIsAuthenticated={setIsAuthenticated} />
-            )
-          }
+          element={isAuthenticated ? <Navigate to="/dashboard" /> : <Signup />}
         />
 
         {/* Prywatne ścieżki (wymagające AuthProvider) */}
