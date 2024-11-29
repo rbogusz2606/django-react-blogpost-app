@@ -1,45 +1,45 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { apiUrl } from "../../config.js";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
-  
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post(`${apiUrl}/signup/`, formData);
       // Wyodrębnij tokeny z odpowiedzi
       const { access, refresh, user } = response.data;
       // Przechowaj tokeny w localStorage
-      localStorage.setItem('access_token', access);
-      localStorage.setItem('refresh_token', refresh);
+      localStorage.setItem("access_token", access);
+      localStorage.setItem("refresh_token", refresh);
       // Opcjonalnie, przechowaj dane użytkownika
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       setError(null);
-      setSuccess('Pomyślnie zarejestrowano użytkownika!');
-      alert("Rejestracja pomyślna!")
-      navigate('/login');
+      setSuccess("Pomyślnie zarejestrowano użytkownika!");
+      alert("Rejestracja pomyślna!");
+      navigate("/login");
     } catch (error) {
       setSuccess(null);
-      setError('Rejestracja nie powiodła się. Sprawdź wprowadzone dane.');
+      setError("Rejestracja nie powiodła się. Sprawdź wprowadzone dane.");
     }
   };
 
@@ -75,7 +75,11 @@ const Signup = () => {
           </Typography>
         )}
         {success && (
-          <Typography variant="body2" color="success.main" sx={{ marginBottom: 2 }}>
+          <Typography
+            variant="body2"
+            color="success.main"
+            sx={{ marginBottom: 2 }}
+          >
             {success}
           </Typography>
         )}
@@ -101,7 +105,13 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ marginTop: 2 }}
+          >
             Zarejestruj się
           </Button>
         </form>
@@ -117,4 +127,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
